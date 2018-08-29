@@ -21,3 +21,7 @@ docker inspect ubuntu:xenial
 
 #search for images
 docker search ubuntu
+
+#attache container
+docker attache docker_name
+
