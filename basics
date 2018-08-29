@@ -25,8 +25,21 @@ docker search ubuntu
 #attache container
 docker attache docker_name
 
+#CREATE CUSTOM IMAGES
+
 #create image based on other image
 1- First makes changes in the image
 2.- then commit the changes
   docker commit -m "Already installed SSH abd created test user" -a "user" 
   musing_tesla user/ubuntusshd:v1
+
+#create image from docker file
+#Create a file wherever you want with this basic content
+
+FROM ubuntu:xenial
+MAINTAINER user@demo.com
+RUN apt-get -y update 
+RUN apt-get -y install telnet openssh-server
+
+#build that image based on the file
+docker build -t="user/ubuntussh:v2" /path
