@@ -25,3 +25,8 @@ docker search ubuntu
 #attache container
 docker attache docker_name
 
+#create image based on other image
+1- First makes changes in the image
+2.- then commit the changes
+  docker commit -m "Already installed SSH abd created test user" -a "user" 
+  musing_tesla user/ubuntusshd:v1
