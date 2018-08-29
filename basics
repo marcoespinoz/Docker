@@ -12,3 +12,12 @@ docker run -i -t ubuntu:xenial /bin/bash
 
 #start, restart, stop docker
 docker start/restart/stop name_of_docker
+
+#list images
+docker images
+
+#get infor from image
+docker inspect ubuntu:xenial
+
+#search for images
+docker search ubuntu
