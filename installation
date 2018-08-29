@@ -1,0 +1,23 @@
+#Add a repository file called docker.repo in /etc/yum.repos.d/
+  [dockerrepo]
+  name=Docker Repository
+  baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/
+  enable=1
+  gpgcheck=1
+  gpgkey=https://yum.dockerproject.org/gpg
+
+#install updates and cocker
+  yum update -y
+  yum install docker-engine
+  
+#Add user to docker group based on the permissions of the file
+  ls -l /var/run/ | grep docker*
+  drwx------.  6 root    root     120 Aug 29 17:38 docker
+  -rw-r--r--.  1 root    root       4 Aug 29 17:38 docker.pid
+  srw-rw----.  1 root    docker     0 Aug 29 17:38 docker.sock
+
+  sudo usermod user -G docker
+
+#Start Docker
+  systemctl enable docker
+  systemctl start docker
