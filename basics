@@ -1,0 +1,14 @@
+#pull image
+docker pull ubuntu 
+
+#See dockers running
+docker ps
+
+#see dockes ran
+docker ps -a
+
+#run docker
+docker run -i -t ubuntu:xenial /bin/bash 
+
+#start, restart, stop docker
+docker start/restart/stop name_of_docker
