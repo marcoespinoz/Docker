@@ -43,3 +43,13 @@ RUN apt-get -y install telnet openssh-server
 
 #build that image based on the file
 docker build -t="user/ubuntussh:v2" /path
+
+#see logs
+docker logs name_ocker
+
+#send commands to docker 
+docker exec name_docker /bin/cat /etc/profile
+
+#redireccionar puertos
+docker run -d -p 8080:80 nginx:latest
+
