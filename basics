@@ -30,8 +30,7 @@ docker attache docker_name
 #create image based on other image
 1- First makes changes in the image
 2.- then commit the changes
-  docker commit -m "Already installed SSH abd created test user" -a "user" 
-  musing_tesla user/ubuntusshd:v1
+  docker commit b237d65fd197 newcentos:withapache
 
 #create image from docker file
 #Create a file wherever you want with this basic content
