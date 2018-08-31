@@ -1,0 +1,14 @@
+#create image as non-user 
+-------------
+# Dockerfile based on centos7 image - non-privileged user entry
+FROM centos:latest
+MAINTAINER linuxacademy@linuxacademy.com
+#create user
+RUN useradd -ms /bin/bash user
+
+#define user as default 
+USER user
+--------------
+
+#conectarse al docker image como root
+docker exec  -u 0 -it dazzling_hopper /bin/bash
