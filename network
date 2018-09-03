@@ -1,0 +1,13 @@
+#list network device
+docker network ls
+docker network ls -no-trunc
+
+#inspect a single network id
+docker network inspect bridge
+
+#Create/remove network for containers
+docker network create --subnet 10.1.0.0/24 --gateway 10.1.0.1 mybridge01
+docker network rm mybridge01
+
+
+
