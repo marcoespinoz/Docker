@@ -27,3 +27,11 @@ RUN echo "This is  acustom index file" > /var/www/html/index.html
 #expose port 80 to the host
 EXPOSE 80
 ENTRYPOINT apachectl "-DFOREGROUND"
+
+
+_________________________
+#MANAGE VOLUMS
+
+docker run -it --name volumetest1 -v /mydata centos:latest /bin/bash > use a path by default, available using docker inspect
+docker run -it --name voltest2 -v /home/user/Builds/MyHostDir:/mydata centos:latest /bin/bash > specify a local directory to mount
+
