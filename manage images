@@ -12,3 +12,18 @@ USER user
 
 #conectarse al docker image como root
 docker exec  -u 0 -it dazzling_hopper /bin/bash
+
+
+____________________________________________
+
+
+#This imahe is based on centos7 and will start apache 
+FROM centos:latest
+MAINTAINER linuxacademy@linuxacademy.com
+RUN yum update -y
+RUN yum install httpd net-tools -y
+RUN echo "This is  acustom index file" > /var/www/html/index.html
+
+#expose port 80 to the host
+EXPOSE 80
+ENTRYPOINT apachectl "-DFOREGROUND"
