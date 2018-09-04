@@ -14,3 +14,6 @@ docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range=10.1.4.
 
 #create a docker and attach to a network already created
 docker run -it --name nettest --net bridge04 centos:latest /bin/bash
+
+#create a docker and attach to a network already created and assign an IP
+docker run -it --name nettest --net bridge04 --ip 10.1.4.100 centos:latest /bin/bash
