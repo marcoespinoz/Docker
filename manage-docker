@@ -1,0 +1,26 @@
+#check proceses
+docker top docker_name
+docker exec local_volume /bin/ps aux | grep bash
+
+#creat a second connection to the docker 
+docker exec -i -t local_volume /bin/bash
+
+#check resources usage in real time
+docker stats local_volume
+
+#delete docker fom file system
+systemctl stop docker 
+rm rf /var/lib/docker/containers/2334325345323454353767576/
+systemctl restart docker
+
+#remap ports
+docker run -itd -p 80 nginx:latest
+docker run -itd -p 8080:80 nginx:latest
+docker run -itd -P nginx:latest
+docker run -itd -p 127.0.0.1:8081:80 nginx:latest
+docker run -itd -p 127.0.0.1:8081:80/udp nginx:latest
+
+#naming dockers
+docker run -itd --name mycontainername nginx:latest /bin/bash
+#rename docker
+docker rename amazing_mahavira myrenamedcontainer
