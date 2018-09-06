@@ -1,0 +1,11 @@
+#events of docker real time
+docker events
+
+#docker events from specific time
+docker events '1h'
+
+#docker events filtered
+#docker events -f/--filter #event/contaniner/image/label/type/volume/network/daemon
+
+docker event --filter event=attach
+docker events --filter event=attach --filter event=die --filter event=stop
