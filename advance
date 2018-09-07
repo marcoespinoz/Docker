@@ -1,0 +1,22 @@
+#convert a docker to an image
+docker commit name_of_container centos:mine
+
+#save docker images somewhere else
+docker save --output centos.latest.tar centos:latest
+
+#restore an image
+docker load --input centos.latest.tar
+
+#See history of docker 
+docker history centos:latest
+docker history --no-trunc centos:latest
+docker history  --quiet centos:latest
+docker history  --quiet --no-trunc centos:latest
+
+#Add tags
+docker tag b54c40f19c0e mine/centos:v1.0
+
+#push to dockerhub
+docker login
+docker push marko2607/mycentos
+docker logout
