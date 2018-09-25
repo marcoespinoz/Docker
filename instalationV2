@@ -9,3 +9,8 @@ srw-rw----. 1 root docker 0 Sep 25 15:25 /var/run/docker.sock
 usermod -aG docker user
 
 ##Ubuntu/Debian
+curl -fsSl https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt-get install docker-ce
+#Add user to docker group
+usermod -aG docker user
