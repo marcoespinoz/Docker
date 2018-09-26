@@ -1,0 +1,9 @@
+#Create service
+docker service create --name bkupweb --publish 80:80 --replicas 2 httpd
+
+#list services
+docker service ls
+
+#list services running
+docker service ps bkupweb
+
