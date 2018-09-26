@@ -1,0 +1,16 @@
+1.- unlock swarm
+2.- stop docker
+
+#Stop docker
+systemctl stop docker
+
+#backup all content of /var/lib/docker/swarm en root file and start docker again
+drwxr-xr-x. 2 root root  72 Sep 26 14:48 certificates
+-rw-------. 1 root root 153 Sep 26 14:48 docker-state.json
+drwx------. 4 root root  53 Sep 26 14:48 raft
+-rw-------. 1 root root  70 Sep 26 14:48 state.json
+drwxr-xr-x. 2 root root  21 Sep 26 14:48 worker
+
+cp -rf /var/lib/docker/swarm/ .
+systemctl start docker
+
