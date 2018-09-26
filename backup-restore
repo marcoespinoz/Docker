@@ -1,6 +1,8 @@
 1.- unlock swarm
 2.- stop docker
 
+
+###BACKUP###
 #Stop docker
 systemctl stop docker
 
@@ -13,4 +15,21 @@ drwxr-xr-x. 2 root root  21 Sep 26 14:48 worker
 
 cp -rf /var/lib/docker/swarm/ .
 systemctl start docker
+
+#guardar el archivo swarm.tar en otro server
+scp swarm.tar user@aynitech6.mylabserver.com:/home/user/
+
+###RESTORE###
+#En el otro server obtener borrar el contenido de /var/lib/docker/swarm
+rm -rf swarm/
+
+#copy backup to 
+/var/lib/docker/swarm
+
+#Start docker service
+systemctl start dockker
+
+#force init docker 
+docker swarm init --force-new-cluster
+
 
