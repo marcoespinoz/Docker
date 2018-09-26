@@ -1,6 +1,11 @@
 ##Instalation of Configure Managers
 docker swarm init --advertise-addr 172.31.118.135
+
 #Recuperar tocken (worker node identifier)
 docker swarm join-token worker
+
 #Recuperar tocken (manager node identifier)
 docker swarm join-token manager
+
+#Add workers
+docker swarm join --token SWMTKN-1-1uq0mocdfagbzxbu1dalqn21inakr9xeuyzldip46r8z7sk8ke-5wb01igvtitgvf6azzfo0ikod 172.31.118.135:2377
