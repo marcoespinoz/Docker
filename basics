@@ -60,3 +60,7 @@ docker exec name_docker /bin/cat /etc/profile
 #redireccionar puertos
 docker run -d -p 8080:80 nginx:latest
 
+#Backup/restore image
+docker image save myimages/centos:v1 > mycentos.tar
+docker import mycentos.tar localrepo:centos6
+docker load < mycentos.tar
