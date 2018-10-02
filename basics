@@ -1,3 +1,8 @@
+#Search docker
+docker search apache
+docker search --filter stars=50 apache
+docker search --filter stars=50 --filter is-official=true apache
+
 #pull image
 docker pull ubuntu 
 
