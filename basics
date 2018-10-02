@@ -64,3 +64,9 @@ docker run -d -p 8080:80 nginx:latest
 docker image save myimages/centos:v1 > mycentos.tar
 docker import mycentos.tar localrepo:centos6
 docker load < mycentos.tar
+
+#filter
+docker image inspect centos:6 --format '{{.ContainerConfig.Hostname}}
+##for a secition
+docker image inspect centos:6 --format '{{json .ContainerConfig}}'
+
