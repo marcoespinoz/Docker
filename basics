@@ -1,3 +1,6 @@
+#docker tag
+docker tag centos:6 myimages/centos:v1
+
 #Search docker
 docker search apache
 docker search --filter stars=50 apache
