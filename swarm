@@ -14,3 +14,14 @@ docker swarm join --token SWMTKN-1-1uq0mocdfagbzxbu1dalqn21inakr9xeuyzldip46r8z7
 docker node ls
 docker system info | more
 
+##lock/unlock docker swarm
+docker swarm update --autolock=true ##save the token
+
+docker swarm unlock
+#get the key 
+docker swarm unlock-key
+
+#change key
+restart service or
+docker swarm unlock-key --rotate
+
