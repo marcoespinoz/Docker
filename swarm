@@ -34,6 +34,7 @@ docker service ps testweb
 
 #update replicas
 docker service update --replicas 3 testweb
+docker service scale testweb=3 
 
 #limit resources (apaga y enciende docker)
 docker service update --limit-cpu=.5 --reserve-cpu=.75 --limit-memory=128m --reserve-memory=256m testweb
