@@ -40,3 +40,10 @@ docker service update --limit-cpu=.5 --reserve-cpu=.75 --limit-memory=128m --res
 
 #use global instead of replicate
 docker service create --name testnginx -p 5901:80 --mode global
+
+#add labes to a node
+docker node update --label-add mynode=testnode sjia33dy4vsip6h8u7fr9cicp
+
+#run docker in a labeled images
+docker service create --name constrains -p 80:80 --constraint 'node.labels.mynode ==testnode' --replicas 3 httpd
+
