@@ -1,0 +1,42 @@
+#create a Dockerfile
+---------------
+# simple webserver
+FROM centos:latest
+LABEL maintainer="admin@linuxacademy.com"
+RUN yum install -y httpd
+RUN echo "Our Container website" >> /var/www/html/index.html
+EXPOSE 80
+ENTRYPOINT apachectl -DFOREGROUND
+-----------
+
+#testear que funcione correctamente
+docker build -t myhttpd:v1 .
+docker run -d --name testeweb -p 80:80 myhttpd
+
+#liminar todo y crear el yaml file llamado docker-compose.yml
+-----------
+version: '3'
+services:
+  apiweb1:
+    image: myhttpd:v1
+    build: .
+    ports:
+      - "81:80"
+  apiweb2:
+    image: myhttpd:v1
+    ports:
+      - "82:80"
+  load-balancer:
+    image: nginx:latest
+    ports:
+      - "80:80"
+ ----------------
+#ejecutar el file
+docker-compose up -d
+#verificar que funcione de forma local
+docker-compose ps
+#eliminar todo
+docker-compose down volumes
+
+#Ejecutar en modo swarm con docker stack deploy
+docker stack deploy --compose-file docker-compose.yml mycustomstack
