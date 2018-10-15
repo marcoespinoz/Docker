@@ -25,3 +25,15 @@ docker swarm unlock-key
 restart service or
 docker swarm unlock-key --rotate
 
+##Creste a service
+docker service create --name testweb --publish 80:80 httpd
+
+#check service
+docker service ls
+docker service ps testweb
+
+#update replicas
+docker service update --replicas 3 testweb
+
+#limit resources (apaga y enciende docker)
+docker service update --limit-cpu=.5 --reserve-cpu=.75 --limit-memory=128m --reserve-memory=256m testweb
