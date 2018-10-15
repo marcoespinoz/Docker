@@ -1,0 +1,6 @@
+#show a whole section
+docker container inspect --format="{{json .State}}" testweb
+docker container inspect --format="{{json .Config}}" testweb
+
+#show a specific section
+docker container inspect --format="{{.State.Paused}}" testweb
