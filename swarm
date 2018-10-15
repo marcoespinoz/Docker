@@ -37,3 +37,6 @@ docker service update --replicas 3 testweb
 
 #limit resources (apaga y enciende docker)
 docker service update --limit-cpu=.5 --reserve-cpu=.75 --limit-memory=128m --reserve-memory=256m testweb
+
+#use global instead of replicate
+docker service create --name testnginx -p 5901:80 --mode global
