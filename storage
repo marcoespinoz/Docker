@@ -23,3 +23,6 @@ docker system prune -a --volumes
 -----------
 #restart docker
 systemctl restart docker
+
+#validate
+docker info | grep Storage
