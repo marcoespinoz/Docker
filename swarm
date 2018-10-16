@@ -40,7 +40,7 @@ docker service scale testweb=3
 docker service update --limit-cpu=.5 --reserve-cpu=.75 --limit-memory=128m --reserve-memory=256m testweb
 
 #use global instead of replicate
-docker service create --name testnginx -p 5901:80 --mode global
+docker service create --name testnginx -p 5901:80 --mode global nginx
 
 #add labes to a node
 docker node update --label-add mynode=testnode sjia33dy4vsip6h8u7fr9cicp
