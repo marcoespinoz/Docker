@@ -1,0 +1,12 @@
+##mount volume in a service 
+#listar volumes
+docker volume ls
+#crear volume
+docker volume create my-mount
+
+#check info about volume
+docker volume inspect my-mount
+
+#mountar voume in service
+docker service create --name testweb -p 80:80 --mount source=my-mount,target=/internal-mount --detach=false --replicas 3 httpd
+
