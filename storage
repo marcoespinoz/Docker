@@ -12,3 +12,14 @@ docker service create --name testweb -p 80:80 --mount source=my-mount,target=/in
 
 ##cleanup
 docker system prune -a --volumes
+
+#change storage driver (devicemapper in this case)
+#create a file in /etc/docker/daemon.json
+-----------
+{
+        "storage-driver": "devicemapper"
+
+}
+-----------
+#restart docker
+systemctl restart docker
