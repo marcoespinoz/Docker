@@ -10,3 +10,5 @@ docker volume inspect my-mount
 #mountar voume in service
 docker service create --name testweb -p 80:80 --mount source=my-mount,target=/internal-mount --detach=false --replicas 3 httpd
 
+##cleanup
+docker system prune -a --volumes
