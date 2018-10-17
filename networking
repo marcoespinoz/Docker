@@ -1,0 +1,11 @@
+#list networks
+docker network ls
+
+#create a network bridge
+docker network create --driver=bridge --subnet=192.168.1.0/24 --opt "com.docker.network.driver.mtu"="1501" devel0
+
+#assign network to a container
+docker network connect --ip=192.168.1.10 devel0 testweb
+
+#dissconect a network from a docker
+docker network disconnect bridge testweb
