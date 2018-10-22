@@ -15,3 +15,8 @@ docker run -d --name testweb --dns=8.8.8.8 --dns=8.8.4.4 httpd
 
 #configurar dns every time it lunchs
 #create a file called daemon in /etc/docker/daemon.jason
+
+#publih all ports an image has configured
+docker run -d --name testweb -P httpd
+
+#publish an specific port
