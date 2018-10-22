@@ -20,3 +20,7 @@ docker run -d --name testweb --dns=8.8.8.8 --dns=8.8.4.4 httpd
 docker run -d --name testweb -P httpd
 
 #publish an specific port
+
+#create a docker service overlay netwoek
+docker network create --driver=overlay --subnet=192.168.1.0/24 overlay0
+docker service create --name testweb -p 80:80 --network=overlay0 --replicas 3 httpd
