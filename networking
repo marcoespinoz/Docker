@@ -24,3 +24,12 @@ docker run -d --name testweb -P httpd
 #create a docker service overlay netwoek
 docker network create --driver=overlay --subnet=192.168.1.0/24 overlay0
 docker service create --name testweb -p 80:80 --network=overlay0 --replicas 3 httpd
+
+#logs for docker in centos
+cat /var/log/message | grep [dD]ocker
+
+#docker host logs
+docker container logs testweb
+
+#docker swarm logs
+docker service logs testweb
