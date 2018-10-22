@@ -9,3 +9,9 @@ docker network connect --ip=192.168.1.10 devel0 testweb
 
 #dissconect a network from a docker
 docker network disconnect bridge testweb
+
+#setup dns
+docker run -d --name testweb --dns=8.8.8.8 --dns=8.8.4.4 httpd
+
+#configurar dns every time it lunchs
+#create a file called daemon in /etc/docker/daemon.jason
